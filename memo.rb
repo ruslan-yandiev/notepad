@@ -8,6 +8,16 @@ class Memo < Post
 
   # Этот метод пока пустой, он будет спрашивать ввод содержимого Заметки
   def read_from_console
+    puts "Новая заметка (всё, что пишите до строчки \"end\"):"
+    @text = []
+    line = nil
+
+    while line != "end"
+      line = STDIN.gets.chomp
+      @text << line
+    end
+
+    @text.pop
   end
 
   # Этот метод будет возвращать массив из строк заметки + строка-дата создания
