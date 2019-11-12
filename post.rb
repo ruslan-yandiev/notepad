@@ -24,9 +24,6 @@ class Post
   # Или каждый дочерний класс динамически регистрируется в подобном массиве
   # сам во время загрузки программы.
   #
-  # Подробнее об этом вы можете прочитать в книгах о паттернах проектирования,
-  # ссылки на которых приведены в дополнительных материалах.
-
   # Метод create класса Post динамически (в зависимости от параметра) создает
   # объект нужного класса (Memo, Task или Link) из набора возможных детей,
   # получая список с помощью метода post_types, объявленного выше.
@@ -56,10 +53,10 @@ class Post
   end
 
   def file_path
-    current_path = File.dirname(__FILE__)
+    # current_path = File.dirname(__FILE__)
 
     file_time = @created_at.strftime('%Y-%m-%d_%H-%M-%S')
 
-    "#{current_path}/#{self.class.name}_#{file_time}.txt"
+    "#{self.class.name}/#{self.class.name}_#{file_time}.txt"
   end
 end
