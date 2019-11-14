@@ -45,11 +45,9 @@ class Post
   end
 
   def save
-    file = File.new(file_path, 'w:UTF-8') # открываем файл на запись
-
-    to_strings.each { |string| file.puts(string) }
-
-    file.close
+    File.open(file_path, 'w:UTF-8') do |f|
+      to_strings.each {|string| f.puts(string)}
+    end
   end
 
   def file_path
